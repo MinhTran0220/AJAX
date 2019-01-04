@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- title  -->
+  <title>AJAX Assigment</title>
+  <!-- link to slyle.css -->
+  <link href="./assets/css/reset.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Animals Search</h1>
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="animal-buttons">
+
+    </div>
+    <!-- Animals Select Box -->
+    <form id="animal-form">
+      <!-- Label for Text Box -->
+      <label for="animal-input">
+        <h2> Add an animal </h2>
+      </label>
+      <!-- Text Input Box -->
+      <input type="text" id="animal-input"><br>
+
+      <!-- Button triggers new animals to be added -->
+      <input id="add-animal" type="submit" value="Submit">
+    </form>
+    <!-- Animals Information -->
+    <div id="animals">
+
+    </div>
+
+    <!-- link to javascript + js file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/javascript/app.js"></script>
+</body>
+
+</html>

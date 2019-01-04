@@ -1,0 +1,58 @@
+
+/* body background */
+body { 
+  background-image: url(../images/merligen.jpg);
+  background-position: center center;
+  background-repeat:  no-repeat;
+  background-attachment: fixed;
+  background-size:  cover;
+  font: 18px arial, sans-serif;
+  height: auto;
+}
+/* h1 & h2 */
+h1, h2{
+  color: blue;
+}
+
+/* input button  */
+button,
+input[type="submit"] {
+  padding: 7px 20px;
+  margin: 0 10px 10px 0;
+  font-size: 20px;
+  color:blue;
+  cursor: pointer;
+  background:lightskyblue;
+  border: 5;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px blue;
+  border-radius: 80%;
+}
+/* input text  */
+input[type="text"] {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+/* input form */
+form {
+  float: right;
+  width: 20%;
+  padding: 30px;
+}
+/* input lable */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+/* dimension for animals button */
+#animals {
+  width: 70%;
+}
+/* posstion for aniamtes */
+.animal-item {
+  float: left;
+  padding: 10px;
+}
