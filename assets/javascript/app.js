@@ -10,11 +10,9 @@ $(document).ready(function () {
   ];
 
   // function to make buttons and add to page
-
-  
   function allClicks(arrayAnimals, newArray, aninmalButton) {
     $(aninmalButton).empty();
-    //$("#animal-buttons").empty();
+    //$("#animalbutton").empty();
 
     // create for looping for array of Animals 
     for (var i = 0; i < arrayAnimals.length; i++) {
@@ -31,7 +29,6 @@ $(document).ready(function () {
       $(aninmalButton).append(a);
 
     }
-
   }
   // Adding click event listen listener to all buttons
   $(document).on("click", ".animal-button", function () {
@@ -42,61 +39,55 @@ $(document).ready(function () {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
 
-    // Constructing a queryURL using the animal name
+    // Constructing a queryURL using the animal name + key for 10 limit
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
-     // This function handles events where one button is clicked
-  $("#add-animal").on("click", function (event) {
+    // This function handles events where one button is clicked
+    $("#add-animal").on("click", function (event) {
 
-    // Preventing the buttons default behavior when clicked (which is submitting a form)
-    event.preventDefault();
+      // Preventing the buttons default behavior when clicked (which is submitting a form)
+      event.preventDefault();
 
-    // This line grabs the input from the textbox
-   // var newAnimal = $("input").eq(0).val();
-    var newAnimal = $("input").val().trim();
+      // This line grabs the input from the textbox
+      var newAnimal = $("input").val().trim();
 
-    if (newAnimal.length > 2) {
-      // Adding the animals from the textbox to our array
-      animals.push(newAnimal);
-    }
-    // Running the populateButtons function(passing in the animals as an argument)
-    allClicks(animals, "animal-button", "#animal-buttons");
+      if (newAnimal.length > 2) {
+        // Adding the animals from the textbox to our array
+        animals.push(newAnimal);
+      }
+      // Running the allClicks function(passing in the animals as an argument)
+      allClicks(animals, "animal-button", "#animal-buttons");
 
-  });
+    });
     // Performing an AJAX request with the queryURL
     $.ajax({
       url: queryURL,
       method: "GET"
     })
-
       // After data comes back from the request
       .then(function (response) {
-        
 
         // Storing an array of results in the results variable
-         var results = response.data;
+        var results = response.data;
 
         // Looping through each result item
-         for (var i = 0; i < results.length; i++) {
-          //var animalDiv = $("<div class=\"animal-item\">");
+        for (var i = 0; i < results.length; i++) {
+          // create var animalDiv and store with animal-item class
           var animalDiv = $("<div/>").addClass("animal-item");
-          
-
-         // <div class="animal-item"><</div>
 
           // Storing the result item's rating
-           var rating = results[i].rating;
+          var rating = results[i].rating;
 
           // Creating a paragraph tag with the result item's rating
-           var p = $("<p>").text("Rating: " + rating);
+          var p = $("<p>").text("Rating: " + rating);
 
           // Setting the src attribute of the image to a property pulled off the result item
-           var animateImg = results[i].images.fixed_height.url;
+          var animateImg = results[i].images.fixed_height.url;
           var result = results[i].images.fixed_height_still.url;
 
           // Creating and storing an image tag
-           var animalImage = $("<img>");
+          var animalImage = $("<img>");
           // Setting the src attribute of the data anmiamls image
           animalImage.attr("src", result);
           animalImage.attr("data-still", result);
@@ -106,10 +97,10 @@ $(document).ready(function () {
           // Appending the paragraph and image tag to the animalDiv
           animalDiv.append(p);
           animalDiv.append(animalImage);
-          // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+          // Prependng the animalDiv to the HTML page in the "#animals" div
           $("#animals").append(animalDiv);
 
-         }
+        }
       });
   });
 
@@ -133,5 +124,6 @@ $(document).ready(function () {
       $(this).attr("data-state", "still");
     }
   });
-   allClicks(animals, "animal-button", "#animal-buttons");
- });
+  // Running the allClicks function(passing in the animals as an argument)
+  allClicks(animals, "animal-button", "#animal-buttons");
+});
