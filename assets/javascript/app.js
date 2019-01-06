@@ -72,9 +72,9 @@ $(document).ready(function () {
 
     // Constructing a queryURL using the animal name + key for 10 limit
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-
+  
     // Performing an AJAX request with the queryURL
 
     $.ajax({
