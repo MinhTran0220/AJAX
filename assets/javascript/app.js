@@ -152,8 +152,7 @@ $(document).ready(function () {
     event.preventDefault();
 
     // This line grabs the input from the textbox
-    var newAnimal = $("input").eq(0).val();
-    //var newAnimal = $("input").val().trim();
+    var newAnimal = $("input").val().trim();
 
 
     if (newAnimal.length > 2) {
